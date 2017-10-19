@@ -1,0 +1,167 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.wrapper{
+	width: 100%;
+	max-width: 100%;
+	background-color: #494947;
+	height: auto;
+	min-height: 100%;
+}
+
+.sidebar{
+	float: left;
+	background-color: #00ABE7;
+	box-shadow: -5px 0 5px -5px #333, 5px 0 5px -5px #333;
+	height:auto;
+}
+
+.main{
+	height: auto;
+	background-color: #FFFFFF;
+}
+
+.titlebar{
+	height: auto;
+	background-color: #00ABE7;
+	text-align: center;
+	overflow: hidden;
+}
+
+.titleText1{
+	color: white;
+	font-weight: 600;
+	font-size: 60px;
+	letter-spacing: 2px;
+	position: static;
+	top: 20px;
+	left: 20px;
+	font-family: 'Kanit', sans-serif;
+}
+.titleText2{
+	color: white;
+	font-weight: 600;
+	font-size: 30px;
+	letter-spacing: 2px;
+	position: static;
+	top: 20px;
+	left: 60px;
+	font-family: 'Kanit', sans-serif;
+}
+
+.sidebarText1{
+	color: white;
+	font-weight: 600;
+	font-size: 14px;
+	letter-spacing: 2px;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 20px;
+	float: left;
+	font-family: 'Kanit', sans-serif;
+}
+
+.subtitleText1{
+	color: black;
+	font-weight: 600;
+	font-size: 40px;
+	letter-spacing: 2px;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 20px;
+	font-family: 'Kanit', sans-serif;
+}
+
+.subtitleText2{
+	color: black;
+	font-weight: 600;
+	font-size: 30px;
+	letter-spacing: 2px;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 20px;
+	font-family: 'Kanit', sans-serif;
+}
+
+.bodyText1{
+	color: black;
+	font-size: 20px;
+	font-weight: 400px;
+	font-family: 'Roboto', sans-serif;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 10px;
+}
+
+.bodyText1List{
+	color: black;
+	font-size: 20px;
+	font-weight: 400px;
+	font-family: 'Roboto', sans-serif;
+	padding-left: 80px;
+	padding-right: 40px;
+	padding-top: 10px;
+}
+
+.sidebarItem{
+	font-family: 'Kanit', sans-serif;
+	color: white;
+	font-weight: 600;
+	font-size: auto;
+	padding: 10px 25px;
+	letter-spacing: 1px;
+	float: center;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	width:80%;
+	height: 50px;
+	background-color: #00ABE7;
+}
+
+.sidebarItem:hover, .sidebarItem:active {
+	background-color: #0081AF;
+}
+
+.bodyText{
+	font-family: 'Kanit', sans-serif;
+	font-weight: 400;
+}
+.sidebarButton{
+	float: left;
+	padding-left: 20px;
+	padding-top: 20px;
+}
+
+.playButton{
+	font-family: 'Kanit', sans-serif;
+	color: white;
+	font-weight: 600;
+	font-size: auto;
+	margin-top:10px;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	letter-spacing: 1px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	width: 150px;
+	height: 45px;
+	background-color: #00ABE7;
+	border-radius:5px;
+}
+
+.playButton:hover, .sidebarItem:active {
+	background-color: #0081AF;
+}
+
+.uploadForm{
+	font-size: 16px;
+	padding-left:5%;
+	padding-top:10px;
+	padding-bottom:20px;
+}
