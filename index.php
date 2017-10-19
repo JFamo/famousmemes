@@ -5,7 +5,9 @@ session_start();
 $fmsg = "";
 
 $_SESSION['tag'] = "meme";
-$_SESSION['page'] = "memes";
+if(empty($_SESSION['page'])){
+	$_SESSION['page'] = "memes";
+}
 
 if(isset($_POST['goUpload'])){
 
@@ -18,6 +20,7 @@ if(isset($_POST['tag'])){
 	$newTag = $_POST['tag'];
 
 	$_SESSION['tag'] = $newTag;
+	$_SESSION['page'] = "memes";
 
 	require('pages/connect.php');
 
@@ -117,8 +120,8 @@ if(isset($_POST['uploadFile']) && $_FILES['userfile']['size'] > 0){
 <script src="js/scripts.js"></script>
 
 <head>
-	
-	<title>RealMemes</title>
+
+	<title>FamousMemes</title>
 	<link href="css/main.css" rel="stylesheet" type="text/css" />
 	<link href="https://fonts.googleapis.com/css?family=Kanit:400,600,800" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Carter+One" rel="stylesheet">
@@ -132,7 +135,6 @@ if(isset($_POST['uploadFile']) && $_FILES['userfile']['size'] > 0){
 	<div class="wrapper">
 
 		<div class="sidebar" style="display:none; width: 0%;" id="sidebar">
-			<center>
 			<form method="post">
 				<input type="submit" name="goUpload" class="playButton" value="Upload">
 			</form>
@@ -141,7 +143,6 @@ if(isset($_POST['uploadFile']) && $_FILES['userfile']['size'] > 0){
 	        	Tags
 	      	</p>
 	      	<?php
-
 	      	require('pages/connect.php');
 
 	      	$query = "SELECT name FROM tags ORDER BY hits DESC";
@@ -157,9 +158,7 @@ if(isset($_POST['uploadFile']) && $_FILES['userfile']['size'] > 0){
 		      	echo "<form method='post'><input type='hidden' name='tag' value='" . $name . "'><input type='submit' class='sidebarItem' value='" . $name . "'></form>";
 
 	      	}
-
 	      	?>
-	      	</center>
 		</div>
 
 		<div class="titlebar" style="width: 70%; margin-left: 10%;" id="titlebar">
@@ -167,17 +166,16 @@ if(isset($_POST['uploadFile']) && $_FILES['userfile']['size'] > 0){
 
 			<img class="sidebarButton" src="img/openSidebar.png" width="30" height="30" onclick="sidebarToggle();"/>
 			<p class="titleText1">
-				Real Memes
+				Famous Memes
 			</p>
 			<br />
 			<p class="titleText2">
-				The Realest Memes &#8226 For Real People
+				Famous Memes &#8226 For Famous People
 			</p>
 
 		</div>
 
 		<div class="main" style="width: 70%; margin-left: 10%;" id="main">
-		<center>
 			
 		<?php
 
@@ -237,7 +235,6 @@ if(isset($_POST['uploadFile']) && $_FILES['userfile']['size'] > 0){
 
 		?>
 
-		</center>
 		</div>
 
 	</div>

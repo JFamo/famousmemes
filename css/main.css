@@ -11,16 +11,23 @@
 	min-height: 100%;
 }
 
+body{
+	background-color: #494947;
+}
+
 .sidebar{
 	float: left;
 	background-color: #00ABE7;
 	box-shadow: -5px 0 5px -5px #333, 5px 0 5px -5px #333;
 	height:auto;
+	text-align:center;
 }
 
 .main{
 	height: auto;
 	background-color: #FFFFFF;
+	text-align: center;
+	float: left;
 }
 
 .titlebar{
@@ -28,6 +35,7 @@
 	background-color: #00ABE7;
 	text-align: center;
 	overflow: hidden;
+	float: left;
 }
 
 .titleText1{

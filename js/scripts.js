@@ -32,8 +32,8 @@ function sidebarToggle(){
   		//perform actions
   		document.getElementById("main").style.width = contentWidth + '%';
   		document.getElementById("titlebar").style.width = contentWidth + '%';
-  		document.getElementById("main").style.marginLeft = (sidebarWidth+10) + '%';
-  		document.getElementById("titlebar").style.marginLeft = (sidebarWidth+10) + '%';
+  		document.getElementById("main").style.marginLeft = (sidebarWidth) + '%';
+  		document.getElementById("titlebar").style.marginLeft = (sidebarWidth) + '%';
   		document.getElementById("sidebar").style.width = sidebarWidth + '%';
   		//check animation end
   		if(sidebarWidth == 20){
