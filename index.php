@@ -49,6 +49,10 @@ if(isset($_POST['uploadFile']) && $_FILES['userfile']['size'] > 0){
 	$tag2 = strtolower($_POST['tag2']);
 	$tag3 = strtolower($_POST['tag3']);
 
+	$tag1 = str_replace(' ','',$tag1);
+	$tag2 = str_replace(' ','',$tag2);
+	$tag3 = str_replace(' ','',$tag3);
+
 	//file data manipulation
 	$fp = fopen($tmpName, 'r');
 	$content = fread($fp, filesize($tmpName));
