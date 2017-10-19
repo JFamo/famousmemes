@@ -17,7 +17,7 @@ body{
 
 .sidebar{
 	float: left;
-	background-color: #00ABE7;
+	background-color: #ff4714;
 	box-shadow: -5px 0 5px -5px #333, 5px 0 5px -5px #333;
 	height:auto;
 	text-align:center;
@@ -32,7 +32,8 @@ body{
 
 .titlebar{
 	height: auto;
-	background-color: #00ABE7;
+	padding-bottom:10px;
+	background-color: #ff4714;
 	text-align: center;
 	overflow: hidden;
 	float: left;
@@ -126,11 +127,13 @@ body{
 	display: inline-block;
 	width:80%;
 	height: 50px;
-	background-color: #00ABE7;
+	background-color: #ff4714;
+	-webkit-appearance: none;
+    -webkit-border-radius: 0;
 }
 
 .sidebarItem:hover, .sidebarItem:active {
-	background-color: #0081AF;
+	background-color: #bc340f;
 }
 
 .bodyText{
@@ -159,12 +162,14 @@ body{
 	display: inline-block;
 	width: 150px;
 	height: 45px;
-	background-color: #00ABE7;
+	background-color: #ff4714;
 	border-radius:5px;
+	-webkit-appearance: none;
+    -webkit-border-radius: 0;
 }
 
 .playButton:hover, .sidebarItem:active {
-	background-color: #0081AF;
+	background-color: #bc340f;
 }
 
 .uploadForm{

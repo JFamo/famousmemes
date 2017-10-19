@@ -138,6 +138,10 @@ if(isset($_POST['uploadFile']) && $_FILES['userfile']['size'] > 0){
 			<form method="post">
 				<input type="submit" name="goUpload" class="playButton" value="Upload">
 			</form>
+			<form method='post'>
+				<input type='hidden' name='tag' value='meme'>
+				<input type='submit' class='sidebarItem' value='Show All'>
+			</form>
 
 			<p class="sidebarText1">
 	        	Tags
