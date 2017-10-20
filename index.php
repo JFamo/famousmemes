@@ -5,13 +5,21 @@ session_start();
 $fmsg = "";
 
 $_SESSION['tag'] = "meme";
+
 if(empty($_SESSION['page'])){
 	$_SESSION['page'] = "memes";
+	$_SESSION['loadNum'] = 10;
 }
 
 if(isset($_POST['goUpload'])){
 
 	$_SESSION['page'] = "upload";
+
+}
+
+if(isset($_POST['load'])){
+
+	$_SESSION['loadNum'] += $_POST['load'];
 
 }
 
@@ -153,7 +161,9 @@ if(isset($_POST['uploadFile']) && $_FILES['userfile']['size'] > 0){
 	      	<?php
 	      	require('pages/connect.php');
 
-	      	$query = "SELECT name FROM tags ORDER BY hits DESC";
+	      	$loadNum = $_SESSION['loadNum'];
+
+	      	$query = "SELECT name FROM tags ORDER BY hits DESC LIMIT $loadNum";
 
 	      	$result = mysqli_query($link, $query);
 
@@ -166,7 +176,19 @@ if(isset($_POST['uploadFile']) && $_FILES['userfile']['size'] > 0){
 		      	echo "<form method='post'><input type='hidden' name='tag' value='" . $name . "'><input type='submit' class='sidebarItem' value='" . $name . "'></form>";
 
 	      	}
-	      	?>
+
+	      	$query = "SELECT * FROM tags";
+
+	      	$result = mysqli_query($link, $query);
+
+			if (!$result){
+				die('Error: ' . mysqli_error($link));
+			}
+
+			if(mysqli_num_rows($result) > $loadNum){
+	      	echo "<form method='post'><input type='hidden' name='load' value='10'><input type='submit' class='sidebarItem' value='*More*'></form>";
+			}
+			?>
 		</div>
 
 		<div class="titlebar" style="width: 70%; margin-left: 10%;" id="titlebar">
@@ -195,7 +217,7 @@ if(isset($_POST['uploadFile']) && $_FILES['userfile']['size'] > 0){
 			$ctag = $_SESSION['tag'];
 
 			if($_SESSION['tag'] == "meme"){
-				$query = "SELECT content FROM files ORDER BY hits DESC";
+				$query = "SELECT content FROM files ORDER BY hits DESC LIMIT 10";
 			}
 			else{
 	      		$query = "SELECT content FROM files WHERE tag1='$ctag' OR tag2='$ctag' OR tag3='$ctag' ORDER BY hits DESC";
