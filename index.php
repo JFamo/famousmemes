@@ -19,7 +19,7 @@ if(isset($_POST['goUpload'])){
 
 if(isset($_POST['load'])){
 
-	$_SESSION['loadNum'] += $_POST['load'];
+	$_SESSION['loadNum'] = $_SESSION['loadNum'] + 10;
 
 }
 
