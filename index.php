@@ -148,7 +148,7 @@ if(isset($_POST['uploadFile']) && $_FILES['userfile']['size'] > 0){
 
 		<div class="sidebar" style="display:none; width: 0%;" id="sidebar">
 			<form method="post">
-				<input type="submit" name="goUpload" class="playButton" value="Upload">
+				<input type="submit" name="goUpload" class='sidebarItem' value="Upload">
 			</form>
 			<form method='post'>
 				<input type='hidden' name='tag' value='meme'>
