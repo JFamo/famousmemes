@@ -2,6 +2,8 @@
 
 session_start();
 
+$_SESSION['loadNum'] = $_SESSION['loadNum'] + 10;
+
 $outStr = "";
 
 $outStr .= '<form method="post">';
@@ -43,7 +45,7 @@ if (!$result){
 }
 
 if(mysqli_num_rows($result) > $loadNum){
-	$outStr .= "<form method='post' target='hideFrame'><input type='hidden' name='load' value='10' id='loadMore'><input type='submit' class='sidebarItem' onclick='updateTags();' value='*More*'></form>";
+	$outStr .= "<button class='sidebarItem' onclick='updateTags();'>*More*</button>";
 }
 
 mysqli_close($link);

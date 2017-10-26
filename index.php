@@ -8,18 +8,12 @@ $_SESSION['tag'] = "meme";
 
 if(empty($_SESSION['page'])){
 	$_SESSION['page'] = "memes";
-	$_SESSION['loadNum'] = 10;
+	$_SESSION['loadNum'] = 0;
 }
 
 if(isset($_POST['goUpload'])){
 
 	$_SESSION['page'] = "upload";
-
-}
-
-if(isset($_POST['load'])){
-
-	$_SESSION['loadNum'] = $_SESSION['loadNum'] + 10;
 
 }
 
@@ -139,7 +133,7 @@ if(isset($_POST['uploadFile']) && $_FILES['userfile']['size'] > 0){
 </head>
 
 <!--Page Content-->
-<body>
+<body id="top">
 
 	<div class="wrapper">
 
@@ -190,8 +184,13 @@ if(isset($_POST['uploadFile']) && $_FILES['userfile']['size'] > 0){
 
 				echo '<img width="50%" src="data:image/jpeg;base64,'.base64_encode( $memesResult['content'] ).'"/><br><br>';
 
-			}	
+			}
 
+			?>
+			<br>
+			<a href="#top" class="sidebarItem">Back To Top</a>
+			<br>
+		<?php
 		}
 		//upload
 		else{ ?>

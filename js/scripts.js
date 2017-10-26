@@ -65,7 +65,6 @@ function sidebarToggle(){
 
 function updateTags(){
   $('#sidebarContent').load("sidebarUpdate.php");
-  alert("Update called!");
 };
 
 //update sidebar with AJAX
