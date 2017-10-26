@@ -128,9 +128,6 @@ if(isset($_POST['uploadFile']) && $_FILES['userfile']['size'] > 0){
 
 <html>
 
-<!--Technical Stuff, Imports, Sidebar Script-->
-<script src="js/scripts.js"></script>
-
 <head>
 
 	<title>FamousMemes</title>
@@ -146,55 +143,15 @@ if(isset($_POST['uploadFile']) && $_FILES['userfile']['size'] > 0){
 
 	<div class="wrapper">
 
-		<div class="sidebar" style="display:none; width: 0%;" id="sidebar">
-			<form method="post">
-				<input type="submit" name="goUpload" class='sidebarItem' value="Upload">
-			</form>
-			<form method='post'>
-				<input type='hidden' name='tag' value='meme'>
-				<input type='submit' class='sidebarItem' value='Show All'>
-			</form>
-
-			<p class="sidebarText1">
-	        	Tags
-	      	</p>
-	      	<?php
-	      	require('pages/connect.php');
-
-	      	$loadNum = $_SESSION['loadNum'];
-
-	      	$query = "SELECT name FROM tags ORDER BY hits DESC LIMIT $loadNum";
-
-	      	$result = mysqli_query($link, $query);
-
-			if (!$result){
-				die('Error: ' . mysqli_error($link));
-			}
-
-			while(list($name) = mysqli_fetch_array($result)){
-
-		      	echo "<form method='post'><input type='hidden' name='tag' value='" . $name . "'><input type='submit' class='sidebarItem' value='" . $name . "'></form>";
-
-	      	}
-
-	      	$query = "SELECT * FROM tags";
-
-	      	$result = mysqli_query($link, $query);
-
-			if (!$result){
-				die('Error: ' . mysqli_error($link));
-			}
-
-			if(mysqli_num_rows($result) > $loadNum){
-	      	echo "<form method='post'><input type='hidden' name='load' value='10'><input type='submit' class='sidebarItem' value='*More*'></form>";
-			}
-			?>
+		<div class="sidebar" style="display:none; width: 0%;" name="sidebar" id="sidebar">
+		<div id="sidebarContent">
+		</div>
 		</div>
 
-		<div class="titlebar" style="width: 70%; margin-left: 10%;" id="titlebar">
+		<div class="titlebar" style="width: 70%; margin-left: 10%;" name="titlebar" id="titlebar">
 
 
-			<img class="sidebarButton" src="img/openSidebar.png" width="30" height="30" onclick="sidebarToggle();"/>
+			<img class="sidebarButton" src="img/openSidebar.png" id="sidebarButton" width="30" height="30" onclick="sidebarToggle();"/>
 			<p class="titleText1">
 				Famous Memes
 			</p>
@@ -217,7 +174,7 @@ if(isset($_POST['uploadFile']) && $_FILES['userfile']['size'] > 0){
 			$ctag = $_SESSION['tag'];
 
 			if($_SESSION['tag'] == "meme"){
-				$query = "SELECT content FROM files ORDER BY hits DESC LIMIT 10";
+				$query = "SELECT content FROM files ORDER BY rand() DESC LIMIT 10";
 			}
 			else{
 	      		$query = "SELECT content FROM files WHERE tag1='$ctag' OR tag2='$ctag' OR tag3='$ctag' ORDER BY hits DESC";
@@ -270,5 +227,11 @@ if(isset($_POST['uploadFile']) && $_FILES['userfile']['size'] > 0){
 	</div>
 
 </body>
+
+<iframe style="display:none;" id="hideFrame" name="hideFrame"></iframe>
+
+<!--Technical Stuff, Imports, Sidebar Script-->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="js/scripts.js" type="text/javascript"></script>
 
 </html>
