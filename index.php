@@ -105,6 +105,32 @@ if(isset($_POST['uploadFile']) && $_FILES['userfile']['size'] > 0){
 			die('Error: ' . mysqli_error($link));
 		}
 
+		$inc = 2;
+
+		$query = "UPDATE tags SET hits=hits+'$inc' WHERE name='$tag1'";
+
+		$result = mysqli_query($link, $query);
+
+		if (!$result){
+			die('Error: ' . mysqli_error($link));
+		}
+
+		$query = "UPDATE tags SET hits=hits+'$inc' WHERE name='$tag2'";
+
+		$result = mysqli_query($link, $query);
+
+		if (!$result){
+			die('Error: ' . mysqli_error($link));
+		}
+
+		$query = "UPDATE tags SET hits=hits+'$inc' WHERE name='$tag3'";
+
+		$result = mysqli_query($link, $query);
+
+		if (!$result){
+			die('Error: ' . mysqli_error($link));
+		}
+
 		mysqli_close($link);
 
 		$fmsg =  "File ".$fileName." Uploaded Successfully!";
